@@ -18,6 +18,7 @@
       "@hyper-hyper-space/node-env": "^0.11.0",
       "@hyper-hyper-space/sqlite": "0.1.0",
       "@hyper-hyper-space/pulsar": "0.0.2",
+      "@hyper-hyper-space/node-rsa": "0.1.0",
       "@subspace/vdf": "^0.1.0",
       "ts-command-line-args": "^2.1.0",
       "tslib": "^2.3.1"

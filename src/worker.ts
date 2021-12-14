@@ -4,9 +4,9 @@ import { Logger, LogLevel } from '../../core/dist/util/logging';
 //import { Blockchain } from './Blockchain';
 import { BlockOp, VDF } from '@hyper-hyper-space/pulsar';
 
-import { RSADefaults } from '@hyper-hyper-space/core';
+import { NodeRSA } from '@hyper-hyper-space/node-rsa';
 
-RSADefaults.useNodeForRSA();
+NodeRSA.enable();
 
 
 class VDFWorker {
