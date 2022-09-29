@@ -1,3 +1,5 @@
+//import '@hyper-hyper-space/node-env';
+
 import { Hash, HashedObject, LiteralContext } from '@hyper-hyper-space/core';
 import { parentPort } from 'worker_threads';
 import { Logger, LogLevel } from '../../core/dist/util/logging';
@@ -5,9 +7,7 @@ import { Logger, LogLevel } from '../../core/dist/util/logging';
 import { BlockOp, VDF } from '@hyper-hyper-space/pulsar';
 
 import { NodeRSA } from '@hyper-hyper-space/node-rsa';
-
 NodeRSA.enable();
-
 
 class VDFWorker {
 
