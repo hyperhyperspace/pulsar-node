@@ -67,10 +67,18 @@ async function main() {
 
     const useFastStorage = args.storage === 'fast';
 
-    let rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
+
+
+    let rl: readline.Interface|undefined = undefined;
+
+    const initReadline = () => {
+        if (rl === undefined) {
+            rl = readline.createInterface({
+                input: process.stdin,
+                output: process.stdout
+            });
+        }
+    }
 
     let identityCmd: string;
     if (args.coinbase !== undefined) {
@@ -82,7 +90,8 @@ async function main() {
         console.log();
 
         identityCmd = await new Promise((resolve: (text: string) => void/*, reject: (reason: any) => void*/) => {
-            rl.question('>', (command: string) => {
+            initReadline();
+            rl?.question('>', (command: string) => {
                 resolve(command);
             });
         });
@@ -102,7 +111,8 @@ async function main() {
             console.log();
     
             let name = await new Promise((resolve: (text: string) => void/*, reject: (reason: any) => void*/) => {
-                rl.question('>', (command: string) => {
+                initReadline();
+                rl?.question('>', (command: string) => {
                     resolve(command);
                 });
             });
@@ -165,7 +175,8 @@ async function main() {
         console.log();
     
         networkCmd = await new Promise((resolve: (text: string) => void/*, reject: (reason: any) => void*/) => {
-            rl.question('>', (command: string) => {
+            initReadline();
+            rl?.question('>', (command: string) => {
                 resolve(command);
             });
         });
@@ -253,7 +264,8 @@ async function main() {
 
         while (true) {
             const line = await new Promise((resolve: (text: string) => void/*, reject: (reason: any) => void*/) => {
-                rl.question('>', (command: string) => {
+                initReadline();
+                rl?.question('>', (command: string) => {
                     resolve(command);
                 });
             });
